@@ -1,0 +1,44 @@
+{
+  "rooms": [
+    {
+      "id": 201,
+      "capacity": 30
+    },
+    {
+      "id": 202,
+      "capacity": 25
+    },
+    {
+      "id": 203,
+      "capacity": 20
+    },
+    {
+      "id": 204,
+      "capacity": 35
+    },
+    {
+      "id": 205,
+      "capacity": 40
+    },
+    {
+      "id": 206,
+      "capacity": 28
+    },
+    {
+      "id": 207,
+      "capacity": 22
+    },
+    {
+      "id": 208,
+      "capacity": 18
+    },
+    {
+      "id": 209,
+      "capacity": 15
+    },
+    {
+      "id": 211,
+      "capacity": 30
+    }
+  ]
+}

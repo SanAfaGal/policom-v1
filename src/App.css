@@ -1,0 +1,21 @@
+/* Estilos para el componente Computer */
+.computer {
+  text-align: center;
+}
+
+.computer-image img{
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.computers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 32px;
+}
