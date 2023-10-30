@@ -1,4 +1,10 @@
 /* Estilos para el componente Computer */
+.colored-svg {
+  fill: #ff0000;
+  color: #ff0000;
+  width: 100px;
+}
+
 .computer {
   text-align: center;
 }
