@@ -1,11 +1,11 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Room } from './components/Room';
+import AvailableRoomsList from './components/AvailableRoomsList';
 
 function App() {
   return (
     <>
-      <Room />
+      <AvailableRoomsList />
     </>
   )
 }

@@ -2,7 +2,6 @@ import { PropTypes } from "prop-types";
 import Image from "react-bootstrap/Image";
 import { COMPUTER_STATE } from "../logic/constants";
 
-
 export function ComputerImage({ reserved, onClick }) {
     return (
         <div className="computer computer-image">

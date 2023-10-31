@@ -1,14 +1,18 @@
 import { jsonComputers, jsonRooms } from "./constants";
+import { getComputersFromLocalStorage, saveComputersToLocalStorage } from "./storage";
 
-const FREE_ROOM = 206
-
-export const getFreeRoom = () => {
+/**
+ * Get a free room based on the current time.
+ * @returns {Object} - A free room object.
+ * @throws {Error} - Throws an error if there's an issue retrieving free rooms.
+ */
+export const getFreeRooms = () => {
     try {
-        // Retrieve the list of computers from the 'json' constant
+        // Retrieve the list of rooms from the 'json' constant
         const roomList = jsonRooms.rooms;
 
-        // Find a room object in the list based on the FREE_ROOM
-        return roomList.find(room => room.id === FREE_ROOM);
+        // Find available rooms based on the current time
+        return getAvailableRooms(roomList);
 
     } catch (e) {
         // Handle any errors that occur during the process
@@ -17,38 +21,95 @@ export const getFreeRoom = () => {
 }
 
 /**
- * Retrieves a list of computer objects with unique IDs and random statuses.
- *
- * @param {number} numberComputers - The number of computer objects to generate.
- * @returns {Array} An array of computer objects, each with a unique ID and a random status (reserved or not).
- * @throws {Error} If an error occurs during the process, an error is thrown.
+ * Get available rooms for the current time.
+ * @param {Array} roomData - An array of room data.
+ * @returns {Array} - An array of available rooms.
  */
-export const getComputers = (freeRoom) => {
+function getAvailableRooms(roomData) {
+    // Get the current time as a Date object.
+    const currentTime = new Date();
+    currentTime.setHours(10);
+
+    /**
+     * Check if the current time falls within a given time interval and the room is available.
+     * @param {Object} interval - The time interval to check.
+     * @returns {boolean} - True if the current time is within the interval and the room is available, otherwise false.
+     */
+    const isWithinInterval = (interval) => {
+        const startHour = interval.start;
+        const endHour = interval.end;
+
+        return (
+            startHour <= currentTime.getHours() &&
+            currentTime.getHours() < endHour &&
+            interval.available
+        );
+    };
+
+    /**
+     * Filter the room data to find rooms with available intervals.
+     * @param {Array} roomData - An array of room data.
+     * @returns {Array} - An array of rooms that have available intervals.
+     */
+    return roomData.filter(
+        (room) => room.availability.some(
+            (interval) => isWithinInterval(interval)
+        )
+    );
+}
+
+/**
+ * Retrieves a list of computer objects with unique IDs and random statuses.
+ * @param {Object} roomSelected - The selected room object.
+ * @returns {Array} - An array of computer objects, each with a unique ID and a random status (reserved or not).
+ * @throws {Error} - Throws an error if there's an issue retrieving computer information.
+ */
+export const getComputers = (roomSelected) => {
     try {
-        // Retrieve the list of computers from the 'json' constant
-        const computerList = jsonComputers.computers;
+        // Check if there are computers in local storage
+        const computersFromLocalStorage = getComputersFromLocalStorage();
+
+        // Return the computers from local storage
+        if (computersFromLocalStorage) {
+            return computersFromLocalStorage;
+        }
 
         // Initialize an array to store computer objects with unique information
         const computersWithUniqueInfo = [];
 
-        // Find a computer object in the list based on the numberRoom
-        const computer = computerList.find(computer => computer.room === freeRoom.id);
+        // Find the type of computer located in the roomSelected
+        const computer = jsonComputers.computers.find(
+            (computer) => computer.room === roomSelected.id
+        );
 
-        for (let i = 0; i < freeRoom.capacity; i++) {
+        if (computer === undefined) {
+            /**
+             * Throw an error if no computers are found for the selected room.
+             * @throws {Error} - An error is thrown to indicate that no matching computers were found for the selected room.
+             */
+            throw new Error('No computers found for the selected room.');
+        }
+
+        // Generate the number of computers that fit in the roomSelected
+        for (let i = 0; i < roomSelected.capacity; i++) {
             
             // Generate a random status (reserved or not)
             const randomStatus = Math.random() >= 0.5;
 
             // Create a unique computer object with an ID, room, and the random status
             const uniqueComputerInfo = {
-                id: `${computer.id}${i + 1}`, // Unique ID by combining the original ID and index
+                // Unique ID by combining the original ID and index
+                id: `${computer.id}${i + 1}`,
                 room: computer.room,
-                reserved: randomStatus
+                reserved: randomStatus,
             };
 
             // Add the unique computer object to the array
             computersWithUniqueInfo.push(uniqueComputerInfo);
         }
+
+        // Save the generated computers to local storage
+        saveComputersToLocalStorage(computersWithUniqueInfo);
 
         return computersWithUniqueInfo;
     } catch (e) {
@@ -56,4 +117,3 @@ export const getComputers = (freeRoom) => {
         throw new Error('Error getting computers');
     }
 };
-

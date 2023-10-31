@@ -1,8 +1,8 @@
-import { useComputerData } from '../hooks/useComputerData';
+import { getComputersFromLocalStorage } from '../logic/storage';
 import { ComputerBooking } from './ComputerBooking';
 
-export function Room() {
-    const computers = useComputerData();
+export function ComputerRoom() {
+    const computers = getComputersFromLocalStorage();
 
     return (
         <ul className="computers">
