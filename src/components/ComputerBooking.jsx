@@ -4,7 +4,7 @@ import { ComputerImage } from "./ComputerImage";
 import { ReservationConfirmation } from "./ReservationConfirmation";
 import { updateComputerReservationInLocalStorage } from "../logic/storage";
 
-export function ComputerBooking({ computer }) {
+export function ComputerBooking({ room, computer }) {
   const [reserved, setReserved] = useState(computer.reserved);
   const [showModal, setShowModal] = useState(false);
 
@@ -15,7 +15,7 @@ export function ComputerBooking({ computer }) {
   };
 
   const handleBook = () => {
-    updateComputerReservationInLocalStorage(computer.id);
+    updateComputerReservationInLocalStorage(room, computer.id);
     setReserved(!reserved);
     setShowModal(false);
   };
@@ -35,8 +35,6 @@ export function ComputerBooking({ computer }) {
 }
 
 ComputerBooking.propTypes = {
-  computer: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    reserved: PropTypes.bool.isRequired,
-  }).isRequired,
+  computer: PropTypes.object.isRequired,
+  room: PropTypes.object.isRequired
 };

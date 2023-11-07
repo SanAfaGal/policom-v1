@@ -1,19 +1,20 @@
 /* Estilos para el componente Computer */
-.colored-svg {
-  fill: #ff0000;
-  color: #ff0000;
-  width: 100px;
-}
-
-.computer {
+.computer-container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
+  width: 50px;
 }
 
-.computer-image img{
-  width: 50px;
-  height: 50px;
-  margin: 10px;
+.computer-image img {
+  width: 100px;
+  margin-block-end: 10px;
   cursor: pointer;
+}
+
+.computer-id {
+  font-size: x-small;
 }
 
 .computers {
@@ -23,5 +24,11 @@
   display: grid;
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 32px;
+}
+
+.available-rooms {
+  list-style: none;
+  display: flex;
   gap: 32px;
 }

@@ -1,16 +1,26 @@
-import { getComputersFromLocalStorage } from '../logic/storage';
+import PropTypes from 'prop-types';
+import { getComputers } from '../logic';
 import { ComputerBooking } from './ComputerBooking';
 
-export function ComputerRoom() {
-    const computers = getComputersFromLocalStorage();
+export function ComputerRoom({ roomSelected }) {
+    const computers = getComputers(roomSelected)
 
     return (
-        <ul className="computers">
-            {computers.map((computer) => (
-                <li className="computer" key={computer.id}>
-                    <ComputerBooking computer={computer} />
-                </li>
-            ))}
-        </ul>
+        <>
+            <h2>Sala seleccionada: {roomSelected.id}</h2>
+
+            <ul className="computers">
+                {computers.map((computer) => (
+                    <li className="computer-container" key={computer.id}>
+                        <ComputerBooking room={roomSelected} computer={computer} />
+                        <span className='computer-id'>{computer.id}</span>
+                    </li>
+                ))}
+            </ul>
+        </>
     );
 }
+
+ComputerRoom.propTypes = {
+    roomSelected: PropTypes.object.isRequired
+};

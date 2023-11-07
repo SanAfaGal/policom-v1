@@ -6,6 +6,11 @@ export const COMPUTER_STATE = {
     true: reservedComputerImage
 }
 
+export const USER = {
+    "student": 'Student',
+    "teacher": 'Teacher'
+}
+
 // Data fetch
 export const jsonComputers = {
     "computers": [
@@ -132,7 +137,7 @@ export const jsonComputers = {
     ]
 }
 
-
+// Data fetch
 export const jsonRooms = {
     "rooms": [
         {

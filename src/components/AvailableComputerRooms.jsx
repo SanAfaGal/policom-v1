@@ -1,20 +1,20 @@
 import { useState } from "react";
-import { getComputers, getFreeRooms } from "../logic";
+import { getFreeRooms } from "../logic";
 import { ComputerRoom } from "./ComputerRoom";
 
-function AvailableRoomsList() {
+
+export default function AvailableComputerRooms() {
     const [selectedRoom, setSelectedRoom] = useState(null)
     const availableRooms = getFreeRooms(selectedRoom);
 
     const handleRoomClick = (room) => {
         setSelectedRoom(room);
-        getComputers(room)
     };
 
     return (
         <div>
             <h2>Salas disponibles</h2>
-            <ul>
+            <ul className="available-rooms">
                 {availableRooms.map((room) => (
                     <li key={room.id}>
                         <button onClick={() => handleRoomClick(room)}>
@@ -23,9 +23,9 @@ function AvailableRoomsList() {
                     </li>
                 ))}
             </ul>
-            {selectedRoom && <ComputerRoom />}
+            {
+                selectedRoom && <ComputerRoom roomSelected={selectedRoom} />
+            }
         </div>
     );
 }
-
-export default AvailableRoomsList;

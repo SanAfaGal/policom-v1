@@ -4,7 +4,7 @@ import { COMPUTER_STATE } from "../logic/constants";
 
 export function ComputerImage({ reserved, onClick }) {
     return (
-        <div className="computer computer-image">
+        <div className="computer-image">
             <Image src={COMPUTER_STATE[reserved]} onClick={onClick} />
         </div>
     );

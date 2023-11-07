@@ -28,7 +28,7 @@ export const getFreeRooms = () => {
 function getAvailableRooms(roomData) {
     // Get the current time as a Date object.
     const currentTime = new Date();
-    currentTime.setHours(10);
+    currentTime.setHours(9)
 
     /**
      * Check if the current time falls within a given time interval and the room is available.
@@ -66,8 +66,9 @@ function getAvailableRooms(roomData) {
  */
 export const getComputers = (roomSelected) => {
     try {
+
         // Check if there are computers in local storage
-        const computersFromLocalStorage = getComputersFromLocalStorage();
+        const computersFromLocalStorage = getComputersFromLocalStorage(roomSelected);
 
         // Return the computers from local storage
         if (computersFromLocalStorage) {
@@ -92,7 +93,7 @@ export const getComputers = (roomSelected) => {
 
         // Generate the number of computers that fit in the roomSelected
         for (let i = 0; i < roomSelected.capacity; i++) {
-            
+
             // Generate a random status (reserved or not)
             const randomStatus = Math.random() >= 0.5;
 
@@ -109,11 +110,36 @@ export const getComputers = (roomSelected) => {
         }
 
         // Save the generated computers to local storage
-        saveComputersToLocalStorage(computersWithUniqueInfo);
+        saveComputersToLocalStorage(roomSelected, computersWithUniqueInfo);
 
         return computersWithUniqueInfo;
     } catch (e) {
         // Handle any errors that occur during the process
         throw new Error('Error getting computers');
+    }
+};
+
+/**
+ * Determines whether an email address belongs to a student or a teacher at 'elpoli.edu.co'.
+ *
+ * @param {string} email - The email address to be checked.
+ * @returns {string} - Returns "Student" if the email belongs to a student, "Teacher" if it belongs to a teacher, or "Invalid Email" if the email does not match the expected patterns.
+ */
+export const determineEmailType = (email) => {
+    if(email === undefined) return null
+    
+    // Regular expression to match a student email
+    const studentRegex = /^[A-Za-z0-9_]+(\d+)[@]elpoli.edu.co$/;
+
+    // Regular expression to match a teacher email
+    const teacherRegex = /^[A-Za-z0-9_]+[@].+$/;
+    // const teacherRegex = /^[A-Za-z0-9_]+[@]elpoli.edu.co$/;
+
+    if (studentRegex.test(email)) {
+        return 'Student';
+    } else if (teacherRegex.test(email)) {
+        return 'Teacher';
+    } else {
+        throw Error('Invalid email');
     }
 };
