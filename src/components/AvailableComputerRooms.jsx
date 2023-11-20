@@ -2,10 +2,9 @@ import { useState } from "react";
 import { getFreeRooms } from "../logic";
 import { ComputerRoom } from "./ComputerRoom";
 
-
 export default function AvailableComputerRooms() {
     const [selectedRoom, setSelectedRoom] = useState(null)
-    const availableRooms = getFreeRooms(selectedRoom);
+    const availableRooms = getFreeRooms();
 
     const handleRoomClick = (room) => {
         setSelectedRoom(room);

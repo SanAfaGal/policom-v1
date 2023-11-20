@@ -55,3 +55,4 @@ export const updateComputerReservationInLocalStorage = (room, computerId) => {
         console.error('Error updating computer status in local storage:', error);
     }
 };
+

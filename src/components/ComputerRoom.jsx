@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import { getComputers } from '../logic';
+
 import { ComputerBooking } from './ComputerBooking';
 
 export function ComputerRoom({ roomSelected }) {
     const computers = getComputers(roomSelected)
+    
 
     return (
         <>

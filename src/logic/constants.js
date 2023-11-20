@@ -140,126 +140,137 @@ export const jsonComputers = {
 // Data fetch
 export const jsonRooms = {
     "rooms": [
-        {
-            "id": 201,
-            "capacity": 30,
-            "availability": [
-                { "start": 8, "end": 10, "available": true },
-                { "start": 10, "end": 12, "available": true },
-                { "start": 12, "end": 14, "available": false },
-                { "start": 14, "end": 16, "available": false },
-                { "start": 16, "end": 18, "available": true },
-                { "start": 18, "end": 20, "available": false }
-            ]
-        },
-        {
-            "id": 202,
-            "capacity": 25,
-            "availability": [
-                { "start": 8, "end": 10, "available": false },
-                { "start": 10, "end": 12, "available": true },
-                { "start": 12, "end": 14, "available": true },
-                { "start": 14, "end": 16, "available": true },
-                { "start": 16, "end": 18, "available": true },
-                { "start": 18, "end": 20, "available": false }
-            ]
-        },
-        {
-            "id": 203,
-            "capacity": 20,
-            "availability": [
-                { "start": 8, "end": 10, "available": false },
-                { "start": 10, "end": 12, "available": false },
-                { "start": 12, "end": 14, "available": true },
-                { "start": 14, "end": 16, "available": false },
-                { "start": 16, "end": 18, "available": true },
-                { "start": 18, "end": 20, "available": true }
-            ]
-        },
-        {
-            "id": 204,
-            "capacity": 35,
-            "availability": [
-                { "start": 8, "end": 10, "available": true },
-                { "start": 10, "end": 12, "available": false },
-                { "start": 12, "end": 14, "available": true },
-                { "start": 14, "end": 16, "available": false },
-                { "start": 16, "end": 18, "available": true },
-                { "start": 18, "end": 20, "available": true }
-            ]
-        },
-        {
-            "id": 205,
-            "capacity": 40,
-            "availability": [
-                { "start": 8, "end": 10, "available": false },
-                { "start": 10, "end": 12, "available": true },
-                { "start": 12, "end": 14, "available": true },
-                { "start": 14, "end": 16, "available": false },
-                { "start": 16, "end": 18, "available": true },
-                { "start": 18, "end": 20, "available": false }
-            ]
-        },
-        {
-            "id": 206,
-            "capacity": 28,
-            "availability": [
-                { "start": 8, "end": 10, "available": true },
-                { "start": 10, "end": 12, "available": true },
-                { "start": 12, "end": 14, "available": false },
-                { "start": 14, "end": 16, "available": false },
-                { "start": 16, "end": 18, "available": true },
-                { "start": 18, "end": 20, "available": true }
-            ]
-        },
-        {
-            "id": 207,
-            "capacity": 22,
-            "availability": [
-                { "start": 8, "end": 10, "available": true },
-                { "start": 10, "end": 12, "available": true },
-                { "start": 12, "end": 14, "available": false },
-                { "start": 14, "end": 16, "available": true },
-                { "start": 16, "end": 18, "available": false },
-                { "start": 18, "end": 20, "available": false }
-            ]
-        },
-        {
-            "id": 208,
-            "capacity": 18,
-            "availability": [
-                { "start": 8, "end": 10, "available": false },
-                { "start": 10, "end": 12, "available": false },
-                { "start": 12, "end": 14, "available": false },
-                { "start": 14, "end": 16, "available": true },
-                { "start": 16, "end": 18, "available": true },
-                { "start": 18, "end": 20, "available": true }
-            ]
-        },
-        {
-            "id": 209,
-            "capacity": 15,
-            "availability": [
-                { "start": 8, "end": 10, "available": false },
-                { "start": 10, "end": 12, "available": false },
-                { "start": 12, "end": 14, "available": false },
-                { "start": 14, "end": 16, "available": false },
-                { "start": 16, "end": 18, "available": true },
-                { "start": 18, "end": 20, "available": true }
-            ]
-        },
-        {
-            "id": 211,
-            "capacity": 30,
-            "availability": [
-                { "start": 8, "end": 10, "available": true },
-                { "start": 10, "end": 12, "available": false },
-                { "start": 12, "end": 14, "available": false },
-                { "start": 14, "end": 16, "available": true },
-                { "start": 16, "end": 18, "available": false },
-                { "start": 18, "end": 20, "available": true }
-            ]
-        }
+      {
+        "id": 201,
+        "capacity": 30,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": true },
+          { "start": 10, "end": 12, "available": true },
+          { "start": 12, "end": 14, "available": false },
+          { "start": 14, "end": 16, "available": true },
+          { "start": 16, "end": 18, "available": true },
+          { "start": 18, "end": 20, "available": false }
+        ]
+      },
+      {
+        "id": 202,
+        "capacity": 25,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": false },
+          { "start": 10, "end": 12, "available": true },
+          { "start": 12, "end": 14, "available": true },
+          { "start": 14, "end": 16, "available": true },
+          { "start": 16, "end": 18, "available": true },
+          { "start": 18, "end": 20, "available": false }
+        ]
+      },
+      {
+        "id": 203,
+        "capacity": 20,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": false },
+          { "start": 10, "end": 12, "available": false },
+          { "start": 12, "end": 14, "available": true },
+          { "start": 14, "end": 16, "available": false },
+          { "start": 16, "end": 18, "available": true },
+          { "start": 18, "end": 20, "available": true }
+        ]
+      },
+      {
+        "id": 204,
+        "capacity": 35,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": true },
+          { "start": 10, "end": 12, "available": false },
+          { "start": 12, "end": 14, "available": true },
+          { "start": 14, "end": 16, "available": false },
+          { "start": 16, "end": 18, "available": true },
+          { "start": 18, "end": 20, "available": true }
+        ]
+      },
+      {
+        "id": 205,
+        "capacity": 40,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": false },
+          { "start": 10, "end": 12, "available": true },
+          { "start": 12, "end": 14, "available": true },
+          { "start": 14, "end": 16, "available": false },
+          { "start": 16, "end": 18, "available": true },
+          { "start": 18, "end": 20, "available": false }
+        ]
+      },
+      {
+        "id": 206,
+        "capacity": 28,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": true },
+          { "start": 10, "end": 12, "available": true },
+          { "start": 12, "end": 14, "available": false },
+          { "start": 14, "end": 16, "available": false },
+          { "start": 16, "end": 18, "available": true },
+          { "start": 18, "end": 20, "available": true }
+        ]
+      },
+      {
+        "id": 207,
+        "capacity": 22,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": true },
+          { "start": 10, "end": 12, "available": true },
+          { "start": 12, "end": 14, "available": false },
+          { "start": 14, "end": 16, "available": true },
+          { "start": 16, "end": 18, "available": false },
+          { "start": 18, "end": 20, "available": false }
+        ]
+      },
+      {
+        "id": 208,
+        "capacity": 18,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": false },
+          { "start": 10, "end": 12, "available": false },
+          { "start": 12, "end": 14, "available": false },
+          { "start": 14, "end": 16, "available": true },
+          { "start": 16, "end": 18, "available": true },
+          { "start": 18, "end": 20, "available": true }
+        ]
+      },
+      {
+        "id": 209,
+        "capacity": 15,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": false },
+          { "start": 10, "end": 12, "available": false },
+          { "start": 12, "end": 14, "available": false },
+          { "start": 14, "end": 16, "available": false },
+          { "start": 16, "end": 18, "available": true },
+          { "start": 18, "end": 20, "available": true }
+        ]
+      },
+      {
+        "id": 211,
+        "capacity": 30,
+        "reserved": null,
+        "availability": [
+          { "start": 8, "end": 10, "available": true },
+          { "start": 10, "end": 12, "available": false },
+          { "start": 12, "end": 14, "available": false },
+          { "start": 14, "end": 16, "available": true },
+          { "start": 16, "end": 18, "available": false },
+          { "start": 18, "end": 20, "available": true }
+        ]
+      }
     ]
-}
+  }
+  
 

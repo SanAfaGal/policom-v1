@@ -28,7 +28,7 @@ export const getFreeRooms = () => {
 function getAvailableRooms(roomData) {
     // Get the current time as a Date object.
     const currentTime = new Date();
-    currentTime.setHours(9)
+    // currentTime.setHours(17)
 
     /**
      * Check if the current time falls within a given time interval and the room is available.

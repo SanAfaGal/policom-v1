@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import AvailableRooms from './components/AvailableRooms'
 import AvailableComputerRooms from './components/AvailableComputerRooms'
 import ProtectedRoute from './components/ProtectedRoute';
+import Clock from './components/Clock';
 
 export default function App() {
   const { isAuthenticated } = useAuth0()
@@ -15,11 +16,11 @@ export default function App() {
   return (
     <BrowserRouter>
       <Navigation />
+      <Clock />
       <Routes>
         <Route index element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route element={
-          <ProtectedRoute isAllowed={isAuthenticated} />} >
+        <Route element={<ProtectedRoute isAllowed={isAuthenticated} />} >
           <Route path="/booking-rooms" element={<AvailableRooms />} />
           <Route path="/booking-computers" element={<AvailableComputerRooms />} />
         </Route>

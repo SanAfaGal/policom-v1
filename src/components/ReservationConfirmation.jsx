@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-export function ReservationConfirmation({ computerId, onConfirm, onCancel }) {
+export function ReservationConfirmation({ type, id, onConfirm, onCancel }) {
     return (
         <Modal show={true}>
             <Modal.Header>
                 <Modal.Title>Confirmación de reserva</Modal.Title>
-                <Modal.Body>{computerId}</Modal.Body>
+                <Modal.Body>{type} {id}</Modal.Body>
             </Modal.Header>
             <Modal.Footer>
                 <Button variant="danger" onClick={onCancel}>
@@ -22,7 +22,8 @@ export function ReservationConfirmation({ computerId, onConfirm, onCancel }) {
 }
 
 ReservationConfirmation.propTypes = {
-    computerId: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     onConfirm: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
 };
