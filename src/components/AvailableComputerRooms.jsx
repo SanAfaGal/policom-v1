@@ -1,3 +1,4 @@
+import './Salas.css'
 import { useState } from "react";
 import { getFreeRooms } from "../logic";
 import { ComputerRoom } from "./ComputerRoom";
@@ -11,7 +12,7 @@ export default function AvailableComputerRooms() {
     };
 
     return (
-        <div>
+        <div className="Salas">
             <h2>Salas disponibles</h2>
             <ul className="available-rooms">
                 {availableRooms.map((room) => (

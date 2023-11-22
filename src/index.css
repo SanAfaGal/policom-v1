@@ -34,15 +34,23 @@ body {
     "Helvetica Neue", "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji",
     sans-serif;
   line-height: 1.4;
-  max-width: 800px;
-  margin: 20px auto;
+  max-width: 100%;
+  margin: 0px auto;
   padding: 0 10px;
   word-wrap: break-word;
   color: #363636;
   color: var(--text-main);
-  background: #fff;
-  background: var(--background-body);
   text-rendering: optimizeLegibility;
+  
+
+  display: flex;
+  flex-direction: column; /* Cambiamos la dirección a fila */
+  height: 100vh;
+  background: linear-gradient(to right, #ffcc00 40%, #ffffff 40%);
+  background-image: url('assets/img/poli-desde-el-cielo.jpg');
+  background-size: 40% 100%;
+  background-repeat: no-repeat;
+  
 }
 
 button {
