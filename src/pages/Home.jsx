@@ -1,3 +1,4 @@
+import './Home.css'
 import { useAuth0 } from "@auth0/auth0-react";
 
 import ClipLoader from "react-spinners/ClipLoader";
@@ -15,13 +16,15 @@ export default function Home() {
     }
 
     return (
+    <div className="Home">
         <>
             {isAuthenticated ? (
                 <div>
-                    <LogoutButton />
                     <Profile />
+                    <LogoutButton />
                 </div>
             ) : (<LoginButton />)}
         </>
+    </div>
     )
 }
